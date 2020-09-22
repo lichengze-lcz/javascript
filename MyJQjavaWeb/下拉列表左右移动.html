@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>下拉列表左右移动</title>
+		<script type="text/javascript" src="jquery-2.1.0.js" ></script>
+		
+		
+		<script>
+			
+			$(function(){
+				
+				$("#toleft").click(function(){
+					$("#rightname").append($("#leftname > option:selected"));
+				});
+				
+				$("#toright").click(function(){
+					$("#leftname").append($("#rightname > option:selected"));
+				});
+				
+				
+			});
+			
+			
+			
+			
+		</script>
+	</head>
+	<body>
+		<div class="boder" style=" width: 200px; float: left;" >
+			<select multiple ="multiple" id="leftname">
+				<option>普罗塔格拉</option>
+				<option>柏拉图</option>
+				<option>柏拉图</option>
+				<option>柏拉图</option>
+				<option>柏拉图</option>
+				<option>苏格拉里</option>
+				<option>泰勒斯</option>
+				
+			</select>
+		</div>
+		
+
+
+<div class="boder"  style=" width: 200px; float: left;">
+			<select multiple="multiple" id="rightname">
+				<option>梭罗</option>
+				<option>克里斯提尼</option>
+				<option>伯利克里</option>
+				<option>喀克斯</option>
+				
+			</select>
+		</div>
+<div style="clear: both;" ><div>
+	
+</div>		
+		
+<input type="button" value="-->" id="toleft"/>
+<input type="button" value="<--" id="toright" style="margin-left:200px;"/>
+		
+		
+	</body>
+</html>

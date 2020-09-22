@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>属性选择器</title>
+<script type="text/javascript" src="jquery-2.1.0.js" ></script>
+<style>
+	
+	div{float:left; margin:0px;width:200px; height:200px;background-color:#808080;}
+</style>		
+		
+<script>
+	
+	$(function(){
+		$("#b1").mouseover(function(){
+			$("div[title]").css("backgroundColor","pink");//含有属性 title，背景为粉色
+		});
+		
+		$("#b2").mouseover(function(){
+			$("div[title='test'] ").css("backgroundColor","red");//含有属性 title，值为test背景为红色
+		});
+		
+		$("#b3").mouseover(function(){
+			$("div[title != 'test']").css("backgroundColor","yellow");//属性值不为 test 的div（没有title属性也变）为黄色；【】
+		});
+		
+     	$("#b4").mouseover(function(){
+			$("div[title *= 'es'] ").css("backgroundColor","black");//title属性含有 es值 的div 为黑色 
+		});
+		
+		$("#b5").mouseover(function(){
+			$("div[title ^= 'te']").css("backgroundColor","green");//title属性值 以 te 开始 的div 为绿色；  
+		});
+		
+		$("#b6").mouseover(function(){
+			$("div[title $= 'est']").css("backgroundColor","blue");//title属性值 以 st结束 的div 为lan 【单一性】
+		});
+		
+		$("#b7").mouseover(function(){
+			$("div[id][title ^= 'te']").css("backgroundColor","yellow");// 有 【id】属性，  title属性值 以 结束 的div 为yellow  【单一性】
+		});
+		
+		
+	})
+</script>		
+	</head>
+	<body>
+		<input id="b1" type="button" value="含有属性 title，背景为粉色">
+		<input id="b2" type="button" value="含有属性 title，值为test背景为红色">
+		<input id="b3" type="button" value="属性值不为 test 的div（没有title属性也变）为黄色">
+		<input id="b4" type="button" value="title属性含有 es值 的div 为黑色 ">
+		<input id="b5" type="button" value="title属性值 以 te 开始 的div 为绿色">
+		<input id="b6" type="button" value="title属性值 以 est 结束 的div 为blue">
+		<input id="b7" type="button" value="有 【id】属性，  title属性值 以 结束 的div 为yellow ">
+		
+<br/><br/>		
+		<div title=""></div>
+		<div title=""></div>
+		
+		<div title="test"></div>
+		<div title="test></div>
+		<div title="test></div>
+		<div title="est></div>
+		<div title="est></div>
+		<div title="test></div>
+		<div title=""></div>
+		<div title="test></div>
+		<div title=""></div>
+		<div id="d11" title="test></div>
+		<div title=""></div>
+		<div title="test></div>
+		<div title=""></div>
+		<div title=""></div>
+		<div title=""></div>
+		<div title="test></div>
+		<div title="te"></div>
+		<div id="kl" title=""></div>
+		<div title=""></div>
+		<div title=""></div>
+		<div title=""></div>
+		<div title="test></div>
+		<div title=""></div>
+		<div title=""></div>
+		<div title="test></div>
+		<div title="wet"></div>
+		<div title=""></div>
+		<div title=""></div>
+		<div title="est"></div>
+		<div title="est"></div>
+		<div title="tew"></div>
+		<div title=""></div>
+		<div title=""></div>
+		<div title=""></div>
+		<div title=""></div>
+		<div title="est"></div>
+		<div title=""></div>
+		<div title=""></div>
+		<div title="test></div>
+		
+		
+		
+	</body>
+</html>

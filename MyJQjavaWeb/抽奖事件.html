@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>抽奖</title>
+<script type="text/javascript" src="jquery-2.1.0.js" ></script>
+<script type="text/javascript" src="../Myjquery/jQ入门案例demo1.js" ></script>
+	</head>
+	
+	<script>
+		        
+              var imgs = ["../HTML/img1/psc00.jpg",
+              "../HTML/img1/psc01.jpg",
+              "../HTML/img1/psc02.jpg",
+              "../HTML/img1/psc03.jpg",
+              "../HTML/img1/psc04.jpg",
+              "../HTML/img1/psc05.jpg",
+              "../HTML/img1/psc06.jpg",
+              "../HTML/img1/psc07.jpg",
+              "../HTML/img1/psc08.jpg",
+              "../HTML/img1/psc09.jpg",
+              "../HTML/img1/psc10.jpg",
+              "../HTML/img1/psc11.jpg",
+              "../HTML/img1/psc12.jpg",
+              "../HTML/img1/psc13.jpg",
+              "../HTML/img1/psc15.jpg",
+              "../HTML/img1/psc15.jpg",
+              "../HTML/img1/psc16.jpg",
+              "../HTML/img1/psc17.jpg",
+              "../HTML/img1/psc18.jpg",
+              "../HTML/img1/psc19.jpg",
+              "../HTML/img1/psc03.jpg",
+              "../HTML/img1/psc21.jpg",
+              "../HTML/img1/psc22.jpg",
+              "../HTML/img1/psc23.jpg",
+              "../HTML/img1/psc24.jpg",
+              "../HTML/img1/psc25.jpg",
+              "../HTML/img1/psc26.jpg",
+              "../HTML/img1/psc27.jpg",
+              "../HTML/img1/psc28.jpg",
+              ];
+                  		       
+		       
+		       var stateID;
+		       var index;  
+		       $(function(){
+		       	//处理按钮
+		       	$("#startID").prop("disabled",false);
+		       	$("#stopID").prop("disabled",true);
+		       	
+		       	
+                      //绑定单击事件
+		        	$("#startID").click(function(){
+		        		
+		        $("#startID").prop("disabled",true);
+		       	$("#stopID").prop("disabled",false);		
+                        //20毫秒执行一次		        		
+		        	    stateID = setInterval(function() {
+		                //生成随机数			
+		                index = Math.floor(Math.random()*29);
+                        //设置小相框 src 属性
+                        $("#img1ID").prop("src",imgs[index])
+		        		},10);
+		        	});
+		        	
+		        	
+		        	
+		       	    $("#stopID").click(function(){
+		       	$("#startID").prop("disabled",false);
+		       	$("#stopID").prop("disabled",true);    	
+                      // 停止 定时器
+                    clearInterval(stateID);  
+                        //设置小相框 src 属性
+                        $("#img2ID").prop("src",imgs[index])
+		        
+		        	
+		        	});
+		        });
+	</script>
+	
+	
+	
+	<body">
+		<!--小相框-->
+		<div style="border: dashed #000000 5px; width:230px ; height:260 ;">
+			<img id="img1ID" src="../HTML/img1/psc02.jpg" width="230px"; height="260px";/>
+		</div>
+		
+		<!--大相框-->
+		<div style="position: absolute; left: 800px; top: 100px;">
+			<img id="img2ID" src="../HTML/img1/psc13.jpg" width="630px"; height="700px" ;/>
+		</div>
+		
+		<input id="startID" type="button" value="点击开始" 
+	            style ="width: 200px; height: 200px; font-size: 25px; float: left;";		
+			     >
+		
+		<input id="stopID" type="button" value="点击结束" 
+	            style ="width: 200px; height: 200px; font-size: 25px; float: left;";		
+			     >
+		
+		
+	</body>
+</html>

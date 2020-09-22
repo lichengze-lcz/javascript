@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+<script type="text/javascript" src="jquery-2.1.0.js" ></script>
+		<style>
+			table {
+				border: double 3px #FF0000;
+				width: 500px; 
+				margin: auto;
+			}
+			
+			td,th {
+				text-align: center;
+				border: 1px dotted #DAA520;
+			}
+			
+			.over {
+				background-color: #FF0000;
+				background-image: url(img/yinfu.png);
+				background-repeat: no-repeat;
+			}
+			
+			.out {
+				background-color: #ffffff}
+			}
+			
+		
+		</style>
+	</head>
+
+	<body>
+		<table border="1px" bgcolor="aqua">
+
+			<caption>江湖传说</caption>
+			<tr>
+				<td><input id="firstall" name="cd" type="checkbox"></td>
+				<td>姓名</td>
+				<td>性别</td>
+				<td>操作</td>
+			</tr>
+			<tr id="tr1">
+				<td><input name="cd" type="checkbox"></td>
+				<td>达伽马</td>
+				<td>男</td>
+				<!--传个对象叫 this-->-->
+				<td>
+					<a href="javascript:void(0);" id="rebtn1" onclick="deltr(this);">删除</a>
+				</td>
+			</tr>
+			<tr>
+				<td><input name="cd" type="checkbox"></td>
+				<td>哥伦布</td>
+				<td>男</td>
+				<td>
+					<a href="javascript:void(0);" id="rebtn2" onclick="deltr(this);">删除</a>
+				</td>
+			</tr>
+
+			<tr>
+				<td><input name="cd" type="checkbox"></td>
+				<td>迪亚士</td>
+				<td>男</td>
+				<td>
+					<a href="javascript:void(0);" id="rebtn3" onclick="deltr(this);">删除</a>
+				</td>
+			</tr>
+			<tr>
+				<td><input name="cd" type="checkbox"></td>
+				<td>麦哲伦</td>
+				<td>男</td>
+				<td>
+					<a href="javascript:void(0);" id="rebtn4" onclick="deltr(this);">删除</a>
+				</td>
+			</tr>
+
+		</table>
+		<div style="margin-left:600px ;">
+			<input id="selectall" type="button" value="全选">
+			<input id="noall" type="button" value="全不选">
+			<input id="noid" type="button" value="反选">
+		</div>
+	
+	
+	<script>
+		$(function() {
+			$("tr:gt(0):odd").css("background-color","#8B0000");
+			$("tr:gt(0):even").css("background-color","#ff0000");
+			
+		});
+		
+		
+		
+	</script>
+	
+	
+	</body>
+</html>

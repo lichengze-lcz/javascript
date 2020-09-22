@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>History对象</title>
+<!--
+	 
+	                 创建 
+                  window.history	      
+	                     history
+	      
+	                方法
+	
+	             back();      加载 history对象 列表中的前一个  url 地址
+	             forward();   加载 history对象 列表中的后一个  url 地址
+	             go();        加载 history对象 列表中的 某个具体页面
+	             
+	
+	                 属性
+                 length: 返回当前窗口历史列表的 URL 数量；
+
+-->
+	
+                    <script>
+                    	var num = document.getElementById("conct");                    	     	
+                    	     num.onclick = function(){
+                    	     var ELe = history.length;
+                    	     alert(Ele);
+                    	     }
+                    	
+                    </script>	
+	
+	
+	
+	</head>
+	<body>   <input id="conct" type="button"  value="查看当前窗口，浏览历史次数"/>
+	</body>
+</html>

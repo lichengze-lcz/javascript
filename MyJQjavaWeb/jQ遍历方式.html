@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQ遍历方式</title>
+		<script type="text/javascript" src="jquery-2.1.0.js" ></script>
+		
+		<script>
+			
+//		1 JS遍历方式
+			
+			$(function(){
+						
+			var citys =	$("#city li");          
+/*			
+            if("上海" == citys[i].innerHTML);         //需求  结束   
+            break
+            
+//			遍历 li
+            for (var i = 0; i< citys.length; i++) {
+            	alert(i+citys[i].innerHTML);
+             }
+		});
+*/			
+
+
+//         2 JQ 对象(必须是jq对象).each(callback);    caaback 回调函数        不能获取其索引
+
+            citys.each(function(indexn,elemenn){
+//         	获取 li 对象 ,第一种方式 this;   在 citys里  this 就是 li
+//          alert(this.innerHTML);
+           	
+//         	获取li 第二种方式, 在回调函数中定义函数   element(元素对象)    index(索引)
+           	
+           	if("上海" == elemenn.innerHTML){               // false ,break /  true  contuine
+           	return false;
+           	}
+           	alert(indexn + elemenn.innerHTML);   //  转成  jq 对象+ $(element).html()                  innerHTM
+           	
+             });
+             
+             
+//         3 (可以是js对象)$.each[callback];   
+//         4 ()for(li of citys){
+//         	alert($(li).html());
+//         }
+             
+             
+             
+             
+             
+             
+             
+             
+           });
+
+
+
+
+
+
+			
+			
+		</script>
+	</head>
+	<body>
+		
+		<ul id="city">
+			<li>北京</li>
+			<li>重庆</li>
+			<li>上海</li>
+			<li>西安</li>
+		</ul>
+		
+	</body>
+</html>

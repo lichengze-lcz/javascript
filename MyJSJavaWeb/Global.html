@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Global对象</title>
+		
+		<!--Global对象-->
+
+<!--    1 特点: 全局对象     Global 封装的方法 不需要对象就可以直接调用       方法();
+        2 方法： 
+               1 encodeURl（）：url 编码
+                 decodeURl（）：url 解码
+
+               2 encodeURlcomponent（）：url 编码           编码字符更多；
+                 decodeURlcomponent（）：url 解码
+               
+               3 parseInt()：   将字符串转为数字； 
+               
+ 	           4 isNaN（）： 判断一个值是否为NaN  （NaN六亲不认）；
+ 	           
+ 	           5 eval（）： JS字符串  并把它作为脚本代码来执行；
+ 	           
+ 	
+ -->
+		
+		<script>
+			
+			var str = "李承泽";
+			var encode = encodeURI(str);
+			document.write(encode+"<br/>");
+			
+			var str1 = "%E6%9D%8E%E6%89%BF%E6%B3%BD%";
+			var decode = decodeURI(str);
+			document.write(decode+"<br/>");
+		
+		
+//          3 parseInt()：   将字符串转为数字； 
+			
+			var str2 = "12313古力娜扎231";
+			var num = parseInt(str2);
+			document.write(num+"<br/>");
+			
+// 	       4 isNaN（）： 判断一个值是否为NaN  （NaN六亲不认）；
+			var str3 = NaN;
+			
+			document.write(str3==NaN + "<br/>");
+			document.write(isNaN(str3)+"<br/>");
+			
+// 	       5 eval（）： JS字符串  并把它作为脚本代码来执行；
+			
+			  var code = "alert(123)";
+              
+              eval(code);  //解析片段alert(123)
+			
+		</script>
+		
+		
+	</head>
+	<body>
+	</body>
+</html>

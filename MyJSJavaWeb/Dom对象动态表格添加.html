@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>动态表格添加</title>
+
+		<style>
+			table {
+				border: double 3px #FF0000;
+				width: 500px;
+				margin: 100px auto;
+			}
+			
+			td,
+			th {
+				text-align: center;
+				border: 1px dotted #DAA520;
+			}
+			
+			.over {
+				background-color: #FF0000;
+				background-image: url(img/yinfu.png);
+				background-repeat: no-repeat;
+			}
+			
+			.out {
+				background-color: #FFFFFF
+			}
+		</style>
+
+		<script>
+		</script>
+
+	</head>
+
+	<body>
+		<div style="	text-align: center; margin: 50px" />
+		<input id="id" type="text" placeholder="输入编号" />
+		<input id="name" type="text" placeholder="输入姓名" />
+		<input id="gender" type="text" placeholder="输入性别" />
+		<input id="addbtn" type="button" value="添加" />
+		</div>
+
+		<table border="1px" bgcolor="aqua">
+
+			<caption>江湖传说</caption>
+			<tr>
+				<th>编号</th>
+				<th>姓名</th>
+				<th>性别</th>
+				<th>操作</th>
+			</tr>
+			<tr id="tr1">
+				<td>01</td>
+				<td>达伽马</td>
+				<td>男</td>
+				<!--传个对象叫 this-->-->
+				<td>
+					<a href="javascript:void(0);" id="rebtn1" onclick="deltr(this);">删除</a>
+				</td>
+			</tr>
+			<tr>
+				<td>02</td>
+				<td>哥伦布</td>
+				<td>男</td>
+				<td>
+					<a href="javascript:void(0);" id="rebtn2" onclick="deltr(this);">删除</a>
+				</td>
+			</tr>
+
+			<tr>
+				<td>03</td>
+				<td>迪亚士</td>
+				<td>男</td>
+				<td>
+					<a href="javascript:void(0);" id="rebtn3" onclick="deltr(this);">删除</a>
+				</td>
+			</tr>
+			<tr>
+				<td>04</td>
+				<td>麦哲伦</td>
+				<td>男</td>
+				<td>
+					<a href="javascript:void(0);" id="rebtn4" onclick="deltr(this);">删除</a>
+				</td>
+			</tr>
+
+		</table>
+		<script>
+			//  添加	 
+
+			document.getElementById("addbtn").onclick = function() {
+				//获取文本框内容
+				var id = document.getElementById("id").value;
+				var name = document.getElementById("name").value;
+				var gender = document.getElementById("gender").value;
+
+				//创建 td，赋值 td标签体；
+				//id 的td
+
+				var tdid = document.createElement("td"); //不能把一个  字符串 当做一个子节点直接添加到 td里面；
+				// 将 文本id名”id“ 转换为 文本类型节点
+				var textid = document.createTextNode(id);
+				tdid.appendChild(textid);
+				//name 的td
+
+				var tdname = document.createElement("td");
+				var textname = document.createTextNode(name);
+				tdname.appendChild(textname);
+				//gender 的td
+
+				var tdgender = document.createElement("td");
+				var textgender = document.createTextNode(gender);
+				tdgender.appendChild(textgender);
+				//a标签 的td
+				//创建 td
+				var td = document.createElement("td");
+				//创建  a 标签
+				var a = document.createElement("a");
+				//给 a 标签设置属性
+				a.setAttribute("href", "javascript:void(0);");
+				a.setAttribute("onclick", "deltr(this)"); //      使  删除添加的表格
+
+				// 创建文本节点（添加到 a标签中）
+				var texta = document.createTextNode("删除啦");
+				//将文本节点添加到  a 标签
+				a.appendChild(texta);
+				//将 a标签 转化为td标签的子元素
+				td.appendChild(a);
+
+				//创建 tr
+				var tr = document.createElement("tr");
+				//将 td 添加到 tr 中；
+				tr.appendChild(tdid);
+				tr.appendChild(tdname);
+				tr.appendChild(tdgender);
+				tr.appendChild(td);
+
+				//或取 table。将tr 添加到 table中；
+				var table = document.getElementsByTagName("table")[0];
+				table.appendChild(tr);
+
+			}
+
+			//删除表格
+			//                       obja 形式变量（参数）	定义this  使   obja == a标签  	                    
+			function deltr(obja) {
+				//获取 table 标签；     obja（当前a标签）的爹<td> 的爹<tr>  的爹<table>
+				var table = obja.parentNode.parentNode.parentNode;
+				var tr = obja.parentNode.parentNode;
+				table.remove(tr);
+			}
+
+			//		var rem1 = document.getElementById("rebtn1");
+			//			       rem1.onclick = function() {
+			//			       var tab1 = document.getElementById("tab1");
+			//			       var tr1 = document.getElementById("tr1");
+			//			        	tab1.removeChild(tr1);
+			//			        }
+
+			//点击换色
+			var trs = document.getElementsByTagName("tr");
+			//
+			for(var i = 0; i < trs.length; i++) {
+
+				trs[i].onmouseover = function() {
+					this.className = "over"
+				}
+
+				trs[i].onmouseout = function() {
+					this.className = "out"
+
+				}
+
+			}
+		</script>
+
+	</body>
+
+</html>

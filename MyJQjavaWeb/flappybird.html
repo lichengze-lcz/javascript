@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>bird</title>
+		<script type="text/javascript" src="../Myjquery/jQ入门案例demo1.js" ></script>
+		<style>
+			body{background-color:gray; display: block;}
+			
+			canvas{ background-color:#f5f5f5;
+			        position:fixed; top:280px; left:450px;
+			}
+			
+			.mark{ width: 200px;
+			       height: 39px;
+			       border: solid 1px #90EE90;
+			       display: block;
+			       position:absolute;
+			       top: 100px; right: 100px;
+ 				
+			}
+			
+			
+			#res h2{ text-align: center; padding: 5px 0px;}
+			
+			#res img{ width: 50px;
+                      height: 50px;
+                      display: block;
+                      margin: 0 auto;
+                      border-radius: 50%;
+			}
+			
+			/*.res {display: none;}*/
+			
+		</style>
+	</head>
+	<body>
+		<video id="videz" src="img/超级玛丽 - 超级玛丽.mp3" controls="controls">
+		</video>
+		
+		
+	    <div class="mark" id="mark"></div>
+			    <div class="res" id="res">
+				<img id="reimg" src="img/gold03.png"/>
+			    <h2>得分:0</h2>
+			    <canvas id="canvas" width="800" height="400" </canvas>
+		</div>
+	
+		               
+		<script>
+			
+		
+              var canvas =document.getElementById("canvas");
+              var reimg =document.getElementById("reimg");
+              var context = canvas.getContext("2d");
+              reimg.style.display = "none";
+//            context.fillStyle = "#F5F5F5";     //改变 canvas 样式
+//            context.fillRect(300,100,800,400);
+
+
+
+              //往 canvas 里添加图片
+              var img = new Image()
+              img.src = "img/biry11.png";
+                    
+              
+              var birdx = 200;
+              var birdy = 100;
+              var birdtimer = null;
+              
+            img.onload = function(){
+
+               	if(birdtimer == null){ // 如果初始值为null 开启定时器  否则不开
+               		
+               		
+               		
+                    //使小鸟向下；
+                    birdtimer = setInterval(function(){
+               	
+               	
+                 	     //防止小鸟坠落         y值 在页面上<=355 才递增
+               	         if( birdy <= 355){
+               		         birdy++;
+                	     }
+               	
+               	
+               	
+               	     //clearRcet API清空上一张图片滑布 4个参数 前2起始点，结束点； 后参 宽高 ；
+                 	 context.clearRect(0,0,800,400);
+                 	 drawcolumn();
+                	 context.drawImage(img,birdx,birdy);
+               	
+                    },10);
+              	
+                };
+            };
+                                                                                       /*   document.onclick = function(){
+                                                                                         //图片加载  会使鸟快速下落
+                                                                                          img.src = "img/birdd上.png";
+                                                                                         	//每点击下 birdy  y值减50（向上）
+              	                                                                         birdy = birdy -50;
+              	                                                                           */
+              	    document.onmousedown= function(){
+                    //图片加载  会使鸟快速下落
+                    img.src = "img/birdd上.png";
+                    //点击下 birdy  y值减50（向上）
+                    birdy = birdy -30;                                                                    
+              	};
+              	
+              	    document.onmouseup= function(){
+                    img.src = "img/biry11.png";
+              };
+              
+              
+              
+              
+              //Column柱子部分
+              
+              
+              
+              
+              
+              
+              var columnArr = [];     //为了批量生产柱子
+              var columnTimer = null;
+              //封装一个柱子方法*
+        function createColumn(){
+        
+            // 为了批量生产柱子*
+            var columnTimer = setInterval(function(){
+              	
+              	//柱子的容器 盛载图片
+              	var Column = {};
+              	
+              	
+              	//柱子的坐标
+              	Column.positionX = 800;
+              	//Y 坐标在0——200之间；  因为柱子高250px
+              	Column.positionY = -Math.round(Math.random()*100 + 100);     
+              	
+              	
+              	Column.imgA = new Image();    //柱子上下
+              	Column.imgB = new Image();
+              	//柱子的图片
+              	Column.imgA.src = "img/Colum上.png"
+              	Column.imgB.src = "img/Colum下.png"
+
+                //
+                Column.id = new Date().getTime();
+
+
+                columnArr.push(Column);
+//              console.log(columnArr);
+            
+            
+            },1500);
+
+
+
+              	
+        }
+              
+              
+              createColumn()
+              
+              var same = null;    
+              var mark = 0;    //加分用
+              
+              //绘制出来
+              function drawcolumn(){
+              	 
+              	 for (var i = 0; i<columnArr.length; i++) {
+
+                    //上面的柱子
+                    columnArr[i].positionX--;
+              	 	context.drawImage(columnArr[i].imgA,columnArr[i].positionX,columnArr[i].positionY);
+              	 	
+              	 	
+              	 	context.drawImage(columnArr[i].imgB,columnArr[i].positionX,columnArr[i].positionY+350
+              	 	);
+
+                   //过柱子   小鸟40宽 + 柱子330 宽 = 70；
+                    if(birdx + 40 >= columnArr[i].positionX && birdx -70 <= columnArr[i].positionX ){
+                    
+                    //加分
+                        if(columnArr[i].id != same ){
+                    		mark++;
+                    		same = columnArr[i].id   //标志变量
+                    	
+                    	document.getElementById("mark").innerHTML ="得分："+ (mark *100)+"分";
+                    	}
+                            // 碰到上面die                                          碰到下面die
+                            if(birdy < columnArr[i].positionY + 250 || birdy + 40 > columnArr[i].positionY + 360){
+//                            console.log("die")
+                               // 清除定时器；(鸟不飞，柱子不生产);
+                              clearInterval(columnTimer);
+                              clearInterval(birdtimer);
+                            
+                            
+                            //
+                            var Ores = document.getElementById("res");
+                            Ores.style.display="block";
+                            
+                            
+                                 Ores.children[1].innerHTML = "得分"+(mark*100); 
+                            
+//                          Ores.style.display="block";
+                            if(IsTrue){
+                            	
+							reimg.style.display = "block";
+                            	
+                            	
+                            //奖牌 
+                                if(mark > 0 && mark <=100){
+                                	Ores.children[0].src = "img/gold04.png";
+                                }
+                            
+                              if(mark >100 && mark <=600){
+                                	Ores.children[0].src = "img/gold02.png";
+                                }
+                                if(mark >600 && mark <=1000){
+                                	Ores.children[0].src = "img/gold03.png";
+                                }
+                                
+                            }
+                               // 游戏结束，重新开始
+                                 setTimeout(function(){
+                                 Ores.children[1].innerHTML = "游戏即将开始"; 
+                                  	    setTimeout(function(){
+                                  	    	location.reload();
+                                  	    },2000)
+                                  	
+                                  },3000)
+
+
+      
+                           }
+                        }
+
+              	   }
+              	
+              	
+              	
+              };
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+		</script>
+		
+	</body>
+</html>

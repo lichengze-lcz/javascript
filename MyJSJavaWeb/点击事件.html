@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>点击事件</title>
+		
+		<!--<script>
+			
+			 function changeimg(){
+			 	var aaa = document.getElementById("btn1");
+			 	var flag = false;
+			 	
+			 	if(flag){
+			 	aaa.src = "img/05.jpg"
+			      flag = false;
+			 	}else{
+			 	aaa.src = "img/06.jpg"
+			      flag = true;
+			 		
+			 	}
+			 	
+			 }
+			 	
+			
+		</script>
+		-->
+	</head>
+	<body>
+		<img id="btn1" src="img/05.jpg" onclick="changeimg()"/> 
+	</body>
+	
+	
+		<script>                                             
+			
+			   var flag = false;
+            		btn1.onclick  = function(){
+            	var btn1 = document.getElementById("btn1");
+			 	
+			 	if(flag){
+			 	btn1.src = "img/05.jpg"
+			      flag = false;
+			 	}else{
+			
+			 	btn1.src = "img/06.jpg"
+			      flag = true;
+			 		
+			 	}
+			 	
+			 }
+			 	
+			
+		</script>
+		
+	
+	<!--<script>
+			
+		var flag = false;
+           function changeimg(){
+                var btn1 = document.getElementById("btn1");
+			 	
+			 	if(flag){
+			 	btn1.src = "img/05.jpg"
+			      flag = false;
+			 	}else{
+			
+			 	btn1.src = "img/06.jpg"
+			      flag = true;
+			 		
+			 	}
+			 	
+			 }
+			 	
+			
+		</script>-->-->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</html>

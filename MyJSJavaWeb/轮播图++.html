@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>num++</title>
+	</head>
+	           <script>
+	           	
+	           	
+//	           	         var num = 1;
+//	           	        function fun(){
+//	           	        	num++;
+//	           	        	if(num > 3){
+//	           	        		num = 1;
+//	           	        	}
+//	           	        	var img = document.getElementById("changeimg")
+//	           	        	img.src = "img/lilandi0"+num+".jpg";
+//	           	        }
+//	           	        setInterval("fun()",1000); 
+//	           	        
+	           	        
+	           	        var index = 0;
+	           	        function fun1 () {
+	           	        	var img = document.getElementById("changeimg");
+	           	        var num = index % 3 +1;
+	           	        	img.src = "img/lilandi0"+num+".jpg";
+
+                        index = index + 1;
+                        
+	           	        }
+	           	        setInterval("fun1()",1000); 
+
+
+	           	        
+	           </script>
+	              
+	
+	
+	<body>
+		
+		<img id="changeimg" src ="img/lilandi03.jpg" width="50%"/>
+		
+	</body>
+</html>

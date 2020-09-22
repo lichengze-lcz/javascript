@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../Myjquery/jQ入门案例demo1.js" ></script>
+			
+		<style>
+			ul{width: 300px; height:300px; background-color: #A9A9A9; cursor: pointer;list-style: none;}
+			div span{cursor: pointer;}
+		</style>	
+		<script>
+			
+			$(function(){
+				
+				$(".warp2 span").click(function(){
+					$("ul li").append($(this).clone());
+					
+				});
+				
+				
+					
+					
+			});
+			
+		</script>
+	</head>
+	<body>
+		
+<div>
+	<ul>
+		<li></li>
+	</ul>
+</div>		
+				
+		<br/>	
+		<div class="warp2">
+			<span>1</span>
+			<span>2</span>
+			<span>3</span>
+			<span>4</span>
+			<span>5</span>
+			<span>6</span>
+			<span>7</span>
+			<span>8</span>
+			<span>9</span>
+			<span>10</span>
+			<span>11</span>
+			<span>12</span>
+			<span>13</span>
+			<span>14</span>
+			<span>15</span>
+			
+			
+			
+		</div>
+		
+	</body>
+</html>

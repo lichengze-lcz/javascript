@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+     <script>
+/*
+             Array : 数组对象
+                             
+                              创建
+                    var arr = new Array(Element,Element1...);
+                    var arr = new Array(size);  默认长度
+                    var arr = [元素列表]；
+                      
+*              方法 
+ *                 join（） ：将数组中的元素按照 指定分隔符【分隔】
+ *                 push（） ：向数组的末尾，添加一个或更多元素，并返回新的长度;
+ *                 tostring（）：将数组转为字符串输出，并返回结果
+ *                 reverse():颠倒元素数组中的顺序；
+ *                 slice（） ：    已有数组排序
+ *                 shift（）：删除并返回数组的第一个元素；
+ *                 splice（）：删除并向数组添加新元素
+ *                 unshift（）：向开头添加一个或多个元素，并返回新的长度；
+ *             属性
+ *                  length 数组的长度  
+ *             特点
+ *                  1 js中数组元素类型可变
+// *                2 js中数组元素类型可变
+ * */
+
+//   创建
+        var arr01 = new Array(2,3);
+        var arr02 = new Array(25);
+        var arr03 = [2,3,4,5,6,5,6,6];
+        
+        document.write(arr01+"<br/>");
+        document.write(arr02+"<br/>");
+        document.write(arr03+"<br/>");
+        
+     
+//   特点  
+// *                  js中数组元素类型可变
+        var arr01 = new Array(2,"abc","true",);
+        
+// *                  js中数组元素长度可变
+        document.write(arr01[5]+"86<br/>");   // 访问越界   默认 underfine
+        arr01[4]="abc"                      //可以直接定义
+        
+        
+//   方法 
+// *                 push（） ：向数组的末尾，添加一个或更多元素，并返回新的长度;
+        var arr04 = [2,3,4,5,6,7,8,9];
+        arr04.push("======Element");
+        document.write(arr04+"<br/>");
+// *                 unshift（）：向开头添加一个或多个元素，并返回新的长度；
+        var arr05 = [2,3,4,5,6,5,6,6];
+        arr05.unshift("abc");
+        document.write(arr05+"<br/>");
+// *                 shift（）：删除并返回数组的第一个元素；
+        var arr06 = [2,3,4,5,6,7,8,9];
+        arr06.unshift("10");
+        
+        document.write(arr06+"<br/>");
+        
+        
+        
+        
+     </script>
+		
+	</head>
+	<body>
+	</body>
+</html>

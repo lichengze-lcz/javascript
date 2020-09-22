@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+	
+				                 
+		                                                   其中 document属性
+		                                      window.document.ElementByid("id");          
+		                  window :窗口队象
+		             	
+		                创建
+		                window 不用创建   直接使用       （window）.方法名（）；		              
+		                方法
+		               1 弹出方法有关
+		                        window. alert();     警告框  
+		                        comfirm();     确认按钮框取消按钮对话框
+		                                                                                          如果用户点击确定按钮，返回true
+		                                                                                          如果用户点击取消按钮，返回false
+		                        prompt();     提示用户，输入对话框
+		
+                       2 打开关闭窗口方法    		                       
+		                
+		                        close();   关闭浏览器窗口； （谁调用，关谁 默认当前窗口）
+		                        
+		                        open(http);    打开一个新的浏览器窗口；    如 html <a href ="baidu.com">    
+		
+		
+		              
+		               3 定时器有关的方法       
+		              
+		                        setTimeout();   毫秒定时器；（指定毫秒调用函数表达式）                      clearTimeout(id); 清除
+		                                                                                                                                                                          返回值：返回唯一编号，用于清除；
+		                        setintval();    循环定时器：(指定的周期调用函数表达式)
+		 
+		                            function fun(){
+                                       alert("要被调用才能使用");		                            	
+		                            }
+		                            setInterval(fun(),3000);   调用啦
+		                      
+		                      属性
+		               1 获取其他 BOM 对象
+		                          history
+		                          location
+		                          Navigatior
+		                          Screen
+		                                      window.location;
+		               2 获取 DOM对象
+		                                
+-->
+		<script>
+			var getwp; //用来关闭百度窗口   把百度窗口赋值给 getwp
+
+			// 打开窗口
+			function openwp() {
+				var btn = document.getElementById("openbtn");
+				getwp = open("http//www.baidu.com");
+			}
+
+			function closewp() {
+				var btn = document.getElementById("closebtn");
+				getwp.close();
+			}
+
+			//			var openbtn = document.getElementById("openbtn");
+			//			openbtn.onclick  = function() {
+			//			      open("http//www.baidu.com");				
+			//				
+			//			}
+           
+         function setopn(){     
+           
+			window.alert("警告框执行啦-------您可以选择是否退出");
+
+			var flay = confirm("退出确认框执行啦，您确定要退出吗");
+			if(flay) {
+				var flay = confirm("您真的要退出吗");
+				if(flay) {
+					var flay = confirm("确定吗？");
+					if(flay) {
+						var flay = confirm("请您再次确定");
+						if(flay) {
+							var flay = confirm("对不起，您还没有退出成功，您还要再次退出吗");
+							if(flay) {
+									var flay = confirm("正在准备退出，请稍等");
+								if(flay) {
+									var flay = confirm("正在退出ing...");
+									if(flay) {
+										var flay = confirm("，即将退出");
+										if(flay) {
+											var flay = prompt("输入对话框执行啦，请输入   “退出”， 即可退出");
+										         alert("警告框执行啦，什么都信这是不可能的");
+											
+										} else {
+											alert("永远不会执行");   //无flase
+										}
+									} else {
+										alert("如您所愿");
+									}
+								} else {
+									alert("如您所愿");
+								}
+							} else {
+								alert("如您所愿");
+							}
+						} else {
+							alert("如您所愿");
+						}
+					} else {
+						alert("如您所愿");
+					}
+				} else {
+					alert("如您所愿");
+				}
+			} else {
+				alert("如您所愿");
+			}
+		}
+         setInterval("setopn();",3000);
+         
+         
+		</script>
+
+	</head>
+
+	<body>
+		<input id="openbtn" type="button" value="打开百度" onclick="openwp()" />
+		<input id="closebtn" type="button" value="关闭百度" onclick="closewp()" />
+
+	</body>
+
+</html>

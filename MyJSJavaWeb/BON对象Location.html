@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>location地址栏</title>
+	</head>
+<!--
+	                 Location地址栏
+	         
+	             方法： 
+	             location.relode();   刷新页面
+	             location.href;       获取地址      例 html <a href = "www.baidu,com"></a>
+	             
+	
+	
+-->	
+	<script>
+		
+//      location.relode();   刷新页面
+		
+		    // 五秒刷新一次当前页面
+		    function relode01() {
+	             location.reload();
+		    }
+		    setInterval("relode01()",2000);      
+		
+		
+//      location.href;       获取地址      例 html <a href = "www.baidu,com"></a>
+		
+////		    //三秒访问一次百度
+////		      function href2() {
+////		    	var Element = document.getElementById("btn");
+////	             location.href="http//：www.baidu.com";
+////		    }
+////		    setInterval("href2()",2000);     
+	
+		       
+	</script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<body>
+		     <input id="btn" type="button" value="你点我，我就刷新"/>
+	</body>
+</html>

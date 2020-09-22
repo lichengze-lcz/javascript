@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../jquery-2.1.0.js" ></script>
+		
+		<style>
+			ul{ ooverflow: hidden; margin: 300px 500px;}
+			li{ float: left; list-style: none;     }
+			
+			.word{width: 1000px;
+			   height: 100px;
+			   border: dashed 3px red;
+			}
+		</style>
+		
+		<script>
+			   $(function(){
+			   	
+			   	  $("ul li").click(function(){
+			   	  	
+			   	  	 $(".word").append($(this).clone());
+			   	  });
+			   	
+			   });
+			
+			
+		</script>
+	</head>
+	<body>
+		<div class="size">
+			
+			<ul>
+				<li>生</li>
+				<li>前</li>
+				<li>何</li>
+				<li>必</li>
+				<li>久</li>
+				<li>睡</li>
+				<li>，</li>
+				<li>死</li>
+				<li>后</li>
+				<li>必</li>
+				<li>会</li>
+				<li>全</li>
+				<li>眠</li>
+				
+			</ul>
+		</div>
+<br/><br/><br/><br/><br/><br/>
+          <div class="word">
+          	<span>请发言</span><br/>
+          	    <span>啦</span> <span>啦</span> <span>啦</span> <span>啦</span> <span>啦</span> <span>啦</span>
+          	    <span>啦</span>
+          </div>
+
+
+
+	</body>
+</html>

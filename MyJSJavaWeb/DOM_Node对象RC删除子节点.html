@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		  <style>
+		  	#div1{ width:100%; height: 600px; background-color: red;          }
+		  	#div2{ width: 150px; height: 150px; background-color: #ffff00;          }
+		  	#div3{ width: 150px; 
+		  	       height: 150px;
+		  	       background:url(img/lilandi03.jpg) ;  
+                   float: left;		  	       
+		  	
+		  	
+		  	
+		  	        }
+		  	
+		  	
+		  </style>
+		
+	</head>
+	<body>
+		
+
+		
+		<div id="div1">父元素 盒砸
+		   <div id="div2">子元素 子节点</div>
+		</div>
+		<a href="javascript:void(0);" id="remove1" >你点我，我就删除子元素节点</a>
+		<a href="javascript:void(0);" id="add1" >你点我，我就添加子元素节点</a>
+		
+		<!--超链接功能
+			 1  跳转到指定的 url地址； 地址 "为空" 跳转到当前页面； href="javascript:void(0);" 跳转到当前页面不刷新 
+			 2  特殊样式
+		-->
+		<script>   
+//	            	删除子节点
+			
+			       var revala = document.getElementById("remove1");
+			       revala.onclick = function() {
+			       var div1 = document.getElementById("div1");
+			       var div2 = document.getElementById("div2");
+			        	div1.removeChild(div2);
+			        }
+
+//       		   ***添加子节点
+                   //获取 id名为“add1”超链接元素； 
+                   var add = document.getElementById("add1");
+			       //绑定单机事件；
+			       add.onclick = function() {
+                   //获取  id名为“ div1” 元素 ；
+			       var div1 = document.getElementById("div1");
+                   // 如果添加子节点，那么 就要创建个子节点；（创建了 “div”元素 变量名为 div33）
+                   var div33 = document.createElement("div");
+                   // 给变量名为“div33” 的元素  设置属性  （设置了  “id” 名为“div3”  为了使css可以其添加样式）
+			       div33.setAttribute("id","div3");
+			       
+			       div1.appendChild(div33);
+			       
+			       }
+
+		
+		</script>
+	</body>
+</html>
